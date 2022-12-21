@@ -7,7 +7,7 @@ conjunction with the Google Books API.
 https://user-images.githubusercontent.com/105952966/208792537-1c29c8f4-9cb3-4c1e-a63e-a5840eefafcf.mp4
 ## Environment Variables
 
-To run this project, you will need to add the following environment variables to your .env file
+To run this project, you will need to add the following environment variable to your .env file:
 
 `API_key` from the Google Books API
 
@@ -15,7 +15,7 @@ To run this project, you will need to add the following environment variables to
 
 ## API Reference
 
-#### Get all items that where the text from <search> is found in the title
+#### Get all items where the text from `search` is found in the title
 
 ```
   GET https://www.googleapis.com/books/v1/volumes?q=<search>+<terms>&key=<API_key>
@@ -25,7 +25,7 @@ To run this project, you will need to add the following environment variables to
 | :-------- | :------- | :------------------------- |
 | `API_key` | `string` | **Required**. Your API key |
 | `search` | `string` | **Required**. The title, or part of the title, of the book  |
-| `intitle` | `string` | **Required** Specifies that <search> should be in the title of the book |
+| `intitle` | `string` | **Required**. Specifies that `search` should be in the title of the book |
 
 
 
@@ -38,10 +38,10 @@ Clone the project
   git clone https://github.com/fravila08/google_book_search.git
 ```
 
-Go to the project google_books parent directory
+Go to the project google_book_search parent directory
 
 ```bash
-  cd google_books
+  cd google_book_search
 ```
 
 Install dependencies
@@ -59,7 +59,7 @@ Run the program!
 
 ## Running Tests
 
-To run tests, run the following command in the parent directory
+To run tests, run the following command in the parent directory:
 
 ```bash
   pytest
@@ -73,8 +73,8 @@ To run tests, run the following command in the parent directory
 
 ## Feedback
 
-If you have any feedback, please reach out to me at fr4v1l4@gmail.com I'm 
-always striving to become better so the more feedback the better. Thank you!
+If you have any feedback, please reach out to me at fr4v1l4@gmail.com. I'm 
+always striving to improve, so any input would be greatly appreciated. Thank you!
 
 
 ## 🔗 Links
