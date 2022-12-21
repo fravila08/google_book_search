@@ -62,16 +62,15 @@ class Searcher():
                         book_choice_runner=False
                     else:
                         print(f"**Incorrect input please enter a number betwenn 1-{len(my_books)}**")
-                        
                 if book_choice is not None:
                     chosen_book=my_books[book_choice]
                     #we grab the selected book by the index and display it to the user for confirmation
                     print("You selecter:")
                     print(chosen_book)
-                    confirmation=input("\nIs this the book you are looking for? (Enter Y/N)\n")
                     
                     confirmation_runner=True
                     while confirmation_runner:
+                        confirmation=input("\nIs this the book you are looking for? (Enter Y/N)\n")
                         if confirmation.upper()=='Y':
                             #when the user confirms we will add the book to the users Reading List
                             print(self.Guest.add_a_book_to_reading_list(chosen_book))
