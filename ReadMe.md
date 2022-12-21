@@ -77,3 +77,9 @@ always striving to become better so the more feedback the better. Thank you!
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/francisco-r-avila)
 [![Youtube](https://img.shields.io/badge/youtube-C4302B?style=for-the-badge&logo=youtube&logoColor=white)](https://youtube.com/@code_7887)
 
+## Resources for the Google Books APIs
+
+ - [Getting Started](https://developers.google.com/books/docs/v1/getting_started)
+ - [Using the API](https://developers.google.com/books/docs/v1/using)
+ - [Developer's Guide](https://developers.google.com/books/docs/viewer/developers_guide)
+
