@@ -17,7 +17,7 @@ To run this project, you will need to add the following environment variables to
 
 #### Get all items that where the text from <search> is found in the title
 
-```http
+```
   GET https://www.googleapis.com/books/v1/volumes?q=<search>+<terms>&key=<API_key>
 ```
 
