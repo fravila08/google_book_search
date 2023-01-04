@@ -18,10 +18,10 @@ def running_book_search():
             searcher.Reading_List.see_my_book_list()
         elif (user_choice== '6'):
             print("\nThank you please come again soon!\n")
-            runner=False
+            return True
         else:
             print("\n***incorrect input please enter a number between 1 and 6***\n")
-    
+            
 
 
 

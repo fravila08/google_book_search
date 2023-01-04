@@ -1,6 +1,7 @@
 import pytest
 from classes.search import Searcher
 from classes.book import Book
+# from runner import running_book_search
 
 
 class TestClass:
@@ -15,17 +16,23 @@ class TestClass:
     
     
     def test_confirmation_y(self, monkeypatch):
+        #this will take in incorrect input and then place in the correct option to ensure the confirmation
+        #function works correctly with 'y' || 'Y' and returns True
         responses=iter(["adjfaudhf","y"])
         monkeypatch.setattr('builtins.input',lambda _: next(responses))
         assert self.searcher.confirm_book()==True
         
     
     def test_confirmation_n(self, monkeypatch):
+        #this will take in incorrect input and then place in the correct option to ensure the confirmation
+        #function works correctly with 'n' || 'N' and returns False
         responses=iter(["adjfaudhf","n"])
         monkeypatch.setattr('builtins.input',lambda _: next(responses))
         assert self.searcher.confirm_book()==False
     
     def test_adding_a_book_to_list(self):
+        #ensures a book can be added to the reading list and 
+        #returns a confirmation msg for the user
         assert self.searcher.Reading_List.add_a_book_to_reading_list(self.books[0]) == self.return_for_adding_book
     
         
@@ -40,6 +47,8 @@ class TestClass:
         
         
     def test_selecting_a_book_correct_input(self, monkeypatch):
+        #ensures user can select a book from a list of Book instances and add
+        #it to the users reading list
         responses=iter(["3","Y"])
         monkeypatch.setattr('builtins.input', lambda _: next(responses))
         assert self.searcher.select_a_book(self.books) == 3
@@ -63,5 +72,15 @@ class TestClass:
         responses=iter(["ajdfaudf","Gates of Fire","haudifaud",'3',"suhadfaiu",'Y'])
         monkeypatch.setattr('builtins.input', lambda _: next(responses))
         #although this test is not testing for a return value it is testing that input
-        #triggers the correct functionality
+        #triggers the correct functionality and handles incorrect input as well
         assert self.searcher.search_and_add_book_to_store()== True
+        
+    #To run this test you must comment line 29 in runner.py and uncomment line 4 in test_book.py
+    # def test_entire_program(self, monkeypatch):
+    #     #this test will runs through the entire program from start to finish.
+    #     #it takes in edge cases by taking in incorrect input and then taking in
+    #     #correct input. Tests every function in the program and ensures it runs 
+    #     #successfully
+    #     responses=iter(["auifadfh","1","ajdfaudf","Gates of Fire","haudifaud",'3',"suhadfaiu",'Y',"auhfuad","2","6"])
+    #     monkeypatch.setattr('builtins.input', lambda _: next(responses))
+    #     assert running_book_search()==True
