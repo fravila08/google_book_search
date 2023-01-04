@@ -1,26 +1,21 @@
-from classes.searcher import Searcher
+from classes.search import Searcher
 
 
 def running_book_search():
     searcher= Searcher(name='Francisco')
     runner=True
-    menu="""
-1. Add a book to my list!
-2. View my list of books!
-
-6. EXIT    
-    """
+    menu="1. Add a book to my list!\n2. View my list of books!\n6. EXIT    "
     
     
     
-    print(f"Welcome to {searcher.Name}s google book search program!")   
+    print(f"Welcome to {searcher.Name}'s google book search program!")   
     while (runner):
         print(menu)
-        user_choice=input('type a number(1-6) to select an option:  ')
+        user_choice=input("Please choose option '1', '2', or '6' from the Menu above:  ")
         if(user_choice=='1'):
-            searcher.search_for_a_book_title()
+            searcher.search_and_add_book_to_store()
         elif user_choice == '2':
-            searcher.see_my_book_list()
+            searcher.Reading_List.see_my_book_list()
         elif (user_choice== '6'):
             print("\nThank you please come again soon!\n")
             runner=False
