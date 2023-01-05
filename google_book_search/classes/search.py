@@ -34,7 +34,7 @@ class Searcher:
         except:
             pass
         return book_results
-    
+
     
     def confirm_book(self):
         confirmation=input("Would you like to add this book to your reading list? (Enter Y/N)\n")
@@ -44,6 +44,7 @@ class Searcher:
         elif confirmation.upper()=="N":
             return False
         else:
+            #b_inpt method starts on line 21
             self.b_inpt()
             return self.confirm_book()
         
@@ -57,6 +58,7 @@ class Searcher:
         elif choice in nums:
             my_book=books[int(choice)-1]
             console.print(f"\nYou selected: [yellow]{my_book}[/]")
+            #confirm_book method starts in line 39 and returns a boolean variable
             confirm=self.confirm_book()
             if confirm:
                 console.print(f"\n:thumbs_up: {self.Reading_List.add_a_book_to_reading_list(my_book)}\n", style="success")
@@ -64,6 +66,7 @@ class Searcher:
             else:
                 return self.select_a_book(books)
         else:
+            #b_inpt starts on line 21
             self.b_inpt()
             return self.select_a_book(books)
     
@@ -74,7 +77,7 @@ class Searcher:
             #we can exit this method and go back to the main menu
             pass
         else:
-            #the following method begins in line 17
+            #search_for_a_book method begins in line 24
             my_results=self.search_for_a_book(user_book)
             if len(my_results)<1:
                 console.print("**There's no results for what you've entered**", style="error")
@@ -88,7 +91,7 @@ class Searcher:
                 for i in range(len(my_results)):
                     table.add_row(str(i+1), my_results[i].Title, my_results[i].Author, my_results[i].Publisher)
                 console.print(table)
-                #select_a_book method starts in line 44
+                #select_a_book method starts in line 52
                 selection=self.select_a_book(my_results)
                 if selection=="restart_search":
                     return self.search_and_add_book_to_store()
