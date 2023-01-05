@@ -1,10 +1,9 @@
+# This file is an exact replica of runner.py, except we don't call the 'running_book_search' function at the end of the
+# file in order to allow test_book.py to run test properly
 from classes.search import Searcher
-
-
 searcher= Searcher(name='Francisco')
 runner=True
 menu="1. Add a book to my list!\n2. View my list of books!\n6. EXIT    "
-
 print(f"Welcome to {searcher.Name}'s google book search program!")   
 def running_book_search():
     print(menu)
@@ -21,5 +20,3 @@ def running_book_search():
     else:
         print("\n***incorrect input please enter a number between 1 and 6***\n")
         return running_book_search()
-
-running_book_search()
