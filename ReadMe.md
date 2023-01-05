@@ -4,13 +4,19 @@
 This is a command line application created with Python that works in 
 conjunction with the Google Books API.
 
-https://user-images.githubusercontent.com/105952966/208792537-1c29c8f4-9cb3-4c1e-a63e-a5840eefafcf.mp4
+https://user-images.githubusercontent.com/105952966/210851025-3d6d57a6-713a-4b0b-ac02-6ba9205f3e89.mp4
 ## Environment Variables
 
 To run this project, you will need to add the following environment variable to your .env file:
 
 `API_key` from the Google Books API
 
+## Getting your API Key
+
+As previously mentioned to run this program, you'll need to create your API Key. Use the following resources to create your API Key.
+
+- [Getting Started](https://developers.google.com/books/docs/v1/getting_started)
+- [Create Your API Key](https://cloud.google.com/docs/authentication/api-keys?visit_id=638085398466762425-18212346&rd=1#create)
 
 
 ## API Reference
@@ -47,7 +53,7 @@ Go to the project google_book_search parent directory
 Install dependencies
 
 ```bash
-  pip install -r requirements.txt
+  pip3 install -r requirements.txt
 ```
 
 Run the program!
@@ -68,7 +74,7 @@ To run tests, run the following command in the parent directory:
 ## Resources for the Google Books APIs
 
  - [Getting Started](https://developers.google.com/books/docs/v1/getting_started)
- - [Using the API](https://developers.google.com/books/docs/v1/using)
+ - [Using the API](https://developers.google.com/books/docs/v1/using#PerformingSearch)
  - [Developer's Guide](https://developers.google.com/books/docs/viewer/developers_guide)
 
 ## Feedback
