@@ -13,7 +13,7 @@ To run this project, you will need to add the following environment variable to 
 
 ## Getting your API Key
 
-As previously mentioned to run this program, you'll need to create your API Key. Use the following resources to create your API Key.
+As previously mentioned, to run this program you'll need to create your own API Key. Use the following resources to create your API Key.
 
 - [Getting Started](https://developers.google.com/books/docs/v1/getting_started)
 - [Create Your API Key](https://cloud.google.com/docs/authentication/api-keys?visit_id=638085398466762425-18212346&rd=1#create)
@@ -42,6 +42,8 @@ Clone the project
 
 ```bash
   git clone https://github.com/fravila08/google_book_search.git
+  #Then enter the cloned directory
+  cd google_book_search
 ```
 
 Go to the project google_book_search parent directory
@@ -54,6 +56,17 @@ Install dependencies
 
 ```bash
   pip3 install -r requirements.txt
+```
+
+Create .env file to hold your API Key
+```bash
+  vim .env
+  #This will open up vim
+  #press the "i" key on your keyboard to -INSERT- text
+  API_key="<enter your API key here>"
+  #press the "ESC" key on your keyboard to exit -INSERT- mode
+  #enter the following to save the file and exit vim
+  :wq
 ```
 
 Run the program!
