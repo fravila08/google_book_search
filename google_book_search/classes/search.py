@@ -1,10 +1,15 @@
 from .book import Book
 from .reading_list import Reading_List
 import requests
+from rich.console import Console
+from rich.theme import Theme
+from rich.table import Table
+from rich import print
 from dotenv import load_dotenv
 import os
 load_dotenv()
-
+my_theme=Theme({"success":"bold green", "error":"bold red"})
+console=Console(theme=my_theme)
 
 class Searcher:
     
@@ -13,6 +18,8 @@ class Searcher:
         self.Key= os.environ['API_key']#Will grab the google api key from the .env
         self.Reading_List= Reading_List()
         
+    def b_inpt(self):
+        console.print("***Incorrect input please enter 'Y' or 'N'***", style="error")
         
     def search_for_a_book(self, book_title):
         response= requests.get(f"https://www.googleapis.com/books/v1/volumes?q={book_title}+intitle:{book_title}&key={self.Key}")
@@ -20,7 +27,7 @@ class Searcher:
         book_results=[]
         try:
             for book in range(5):
-                book_authors=response['items'][book]['volumeInfo']['authors']
+                book_authors=', '.join(response['items'][book]['volumeInfo']['authors'])
                 book_title=response['items'][book]['volumeInfo']['title']
                 book_publisher=response['items'][book]['volumeInfo']['publisher']
                 book_results.append(Book(**{'title': book_title, 'author':book_authors, 'publisher': book_publisher}))
@@ -37,7 +44,7 @@ class Searcher:
         elif confirmation.upper()=="N":
             return False
         else:
-            print("***Incorrect input please enter 'Y' or 'N'***")
+            self.b_inpt()
             return self.confirm_book()
         
     
@@ -49,15 +56,15 @@ class Searcher:
             return "restart_search"
         elif choice in nums:
             my_book=books[int(choice)-1]
-            print(f"\nYou selected: {my_book}")
+            console.print(f"\nYou selected: [yellow]{my_book}[/]")
             confirm=self.confirm_book()
             if confirm:
-                print(self.Reading_List.add_a_book_to_reading_list(my_book))
+                console.print(f"\n:thumbs_up: {self.Reading_List.add_a_book_to_reading_list(my_book)}\n", style="success")
                 return len(self.Reading_List.Book_list)
             else:
                 return self.select_a_book(books)
         else:
-            print("***Incorrect Input***")
+            self.b_inpt()
             return self.select_a_book(books)
     
     
@@ -70,11 +77,17 @@ class Searcher:
             #the following method begins in line 17
             my_results=self.search_for_a_book(user_book)
             if len(my_results)<1:
-                print("**There's no results for what you've entered**")
+                console.print("**There's no results for what you've entered**", style="error")
                 return self.search_and_add_book_to_store()
             else:
+                table=Table(title="Book Results")
+                table.add_column("#")
+                table.add_column("Title")
+                table.add_column("Author/s")
+                table.add_column("Publisher")
                 for i in range(len(my_results)):
-                    print(f"{i+1}. {my_results[i]}")
+                    table.add_row(str(i+1), my_results[i].Title, my_results[i].Author, my_results[i].Publisher)
+                console.print(table)
                 #select_a_book method starts in line 44
                 selection=self.select_a_book(my_results)
                 if selection=="restart_search":

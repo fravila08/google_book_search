@@ -7,12 +7,12 @@ from runner_for_test import running_book_search
 class TestClass:
     searcher=Searcher(name='test')
     books= [
-            Book(**{'title':'Beyond the Gates of Fire', 'author':["Christopher Matthew"], 'publisher':"Casemate Publishers"}),
-            Book(**{'title':'Fractured Fairy Tales', 'author':['A.J. Jacobs'], 'publisher':'Bantam'}),
-            Book(**{'title':'Tooth Fairy', 'author':['A.J. Jacobs'], 'publisher':'Bantam'})
+            Book(**{'title':'Beyond the Gates of Fire', 'author':"Christopher Matthew", 'publisher':"Casemate Publishers"}),
+            Book(**{'title':'Fractured Fairy Tales', 'author':'A.J. Jacobs', 'publisher':'Bantam'}),
+            Book(**{'title':'Tooth Fairy', 'author':'A.J. Jacobs', 'publisher':'Bantam'})
             ]
 
-    return_for_adding_book= "\n@@Beyond the Gates of Fire has been added to your reading list!@@\n"
+    return_for_adding_book= "Beyond the Gates of Fire has been added to your reading list!"
     
     def test_search_for_a_book(self):
         #Will test the google api and ensure an array of 5 books is returned
@@ -49,7 +49,7 @@ class TestClass:
         assert self.searcher.Reading_List.add_a_book_to_reading_list(self.books[0]) == self.return_for_adding_book
     
     def test_ensuring_book_will_print_correctly(self):
-        assert self.books[0].__str__() == "Title: Beyond the Gates of Fire Author/s: Christopher Matthew Publisher: Casemate Publishers."
+        assert self.books[0].__str__() == "Beyond the Gates of Fire authored by Christopher Matthew and published by Casemate Publishers."
     
     def test_view_reading_list_through_len(self):
         #there's already one book inside of the Reading List so we will just add the other and confirm there's two books in there

@@ -1,4 +1,7 @@
 from classes.search import Searcher
+from rich import print
+from rich.console import Console
+console=Console()
 
 
 searcher= Searcher(name='Francisco')
@@ -16,10 +19,10 @@ def running_book_search():
         searcher.Reading_List.see_my_book_list()
         return running_book_search()
     elif user_choice== '6':
-        print("\nThank you please come again soon!\n")
+        console.print("\nThank you, please come again soon!\n", style="bold cyan")
         return True
     else:
-        print("\n***incorrect input please enter a number between 1 and 6***\n")
+        searcher.b_inpt()
         return running_book_search()
 
 running_book_search()
